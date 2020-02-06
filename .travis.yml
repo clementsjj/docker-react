@@ -6,4 +6,17 @@ before_install:
   - docker build -t clementsjj/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run clementsjj/docker-react npm run test -- --coverage
+  #- docker run clementsjj/docker-react npm run test -- --coverage
+  - docker run -e CI=true clementsjj/docker-react npm run test
+deploy:
+  provider: elasticbeanstalk
+  #TravisCI preconfigured for certain providers
+  region: 'us-east-1'
+  #Depends where you originally created elasticbeanstalk instance in url
+  app: 'docker'
+  #same name as ebs name
+  environment: 'Docker-env'
+  bucket_name: ''
+  bucket_path: 'docker'
+  on:
+    branch: master
