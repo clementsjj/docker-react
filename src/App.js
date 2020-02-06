@@ -13,6 +13,14 @@ function App() {
         <p>Hey Wut Up Homies</p>
         <p>Hot loading baby!!</p>
         <p>WOOHOO</p>
+        <a
+          className="App-link"
+          href="http://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
       </header>
     </div>
   );
